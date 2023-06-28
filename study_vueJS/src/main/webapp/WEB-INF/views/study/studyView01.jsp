@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-<head>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		<title>Home</title>
+	</head>
 	
-	<title>Home</title>
-</head>
 	<body>
 		<div id="app">
 			{{ message }}
@@ -64,5 +65,4 @@
 			}
 		});
 	</script>
-
 </html>

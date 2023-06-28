@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,16 +26,16 @@ public class StudyViewController {
 	private static final Logger logger = LoggerFactory.getLogger(StudyViewController.class);
 	
 	/**
-	 * 로그인 페이지
+	 * 뷰 기초 익히기
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="study/studyView.do")
-	public ModelAndView studyView(Locale locale, Model model, HttpServletRequest request) throws Exception{
+	@RequestMapping(value="study/{studyUrl}.do")
+	public ModelAndView studyView(Locale locale, Model model, HttpServletRequest request, @PathVariable("studyUrl") String studyUrl) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/study/studyView");
+		mv.setViewName("/study/" + studyUrl);
 		
 		return mv;
 	}
