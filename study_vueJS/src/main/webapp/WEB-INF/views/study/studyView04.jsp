@@ -5,7 +5,7 @@
 	<head>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		
-		<title>Home</title>
+		<title>이벤트</title>
 	</head>
 	
 	<body>

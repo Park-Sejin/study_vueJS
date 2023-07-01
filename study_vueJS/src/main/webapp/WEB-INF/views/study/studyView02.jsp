@@ -5,7 +5,7 @@
 	<head>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		
-		<title>Home</title>
+		<title>뷰 데이터와 메소드</title>
 	</head>
 	
 	<body>

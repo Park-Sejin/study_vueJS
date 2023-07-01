@@ -5,7 +5,7 @@
 	<head>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		
-		<title>Home</title>
+		<title>데이터 양방향 바인딩</title>
 	</head>
 	
 	<body>
