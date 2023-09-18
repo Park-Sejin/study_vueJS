@@ -7,9 +7,9 @@
 	</head>
 	<body>
 		<div id="root">
-			<word-relay></word-relay>
-			<word-relay></word-relay>
-			<word-relay></word-relay>
+			<word-relay start-word="자전거"></word-relay>
+			<word-relay start-word="강아지"></word-relay>
+			<word-relay start-word="고양이"></word-relay>
 
 			<!-- 
 				<div>{{word}}</div>
@@ -24,7 +24,7 @@
 	</body>
 	
 	<script>
-		Vue.component('word-relay', {
+		Vue.component('wordRelay', {
 			template : `
 				<div>
 					<div>{{word}}</div>
@@ -36,10 +36,11 @@
 					<div>{{result}}</div>
 				</div>
 			`,
+			props : ['startWord'],
 			// 컴포넌트의 data는 함수로 return해야함
 			data() {
 				return {
-					word : "자전거",
+					word : this.startWord,
 					result : "",
 					value : ""
 				}
