@@ -7,20 +7,66 @@
 	</head>
 	<body>
 		<div id="root">
-			<div>{{word}}</div>
+			<word-relay></word-relay>
+			<word-relay></word-relay>
+			<word-relay></word-relay>
+
+			<!-- 
+				<div>{{word}}</div>
 			<form v-on:submit="onSubmitForm"> 
 				<input type="text" v-model="value" ref="answer">
 				<button type="submit">입력</button>
 			</form>
 			
 			<div>{{result}}</div>
+			 -->
 		</div>
 	</body>
 	
 	<script>
+		Vue.component('word-relay', {
+			template : `
+				<div>
+					<div>{{word}}</div>
+					<form v-on:submit="onSubmitForm"> 
+						<input type="text" v-model="value" ref="answer">
+						<button type="submit">입력</button>
+					</form>
+					
+					<div>{{result}}</div>
+				</div>
+			`,
+			// 컴포넌트의 data는 함수로 return해야함
+			data() {
+				return {
+					word : "자전거",
+					result : "",
+					value : ""
+				}
+			},
+			methods : {
+				onSubmitForm : function(e) {
+					e.preventDefault();
+					
+					if(this.word[this.word.length-1] == this.value[0]){
+						this.word = this.value;
+						this.result = "딩동댕";
+					}
+					else {
+						this.result = "땡";
+					}
+					
+					this.value = "";
+					this.$refs.answer.focus();
+				}
+			}
+		})
+	</script>
+	
+	<script>
 		const app = new Vue({
 			el : "#root",
-			data : {
+			/* data : {
 				word : "자전거",
 				result : "",
 				value : ""
@@ -40,7 +86,7 @@
 					this.value = "";
 					this.$refs.answer.focus();
 				}
-			}
+			} */
 		});
 	</script>
 </html>
