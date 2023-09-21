@@ -21,9 +21,9 @@
 	</body>
 	
 	<script type="text/javascript">
-		// 컴포넌트 전역 등록
+		/* // 컴포넌트 전역 등록
 		// 컴포넌트를 더이상 사용하지 않더라도 최종 빌드에는 들어가게 됨. > 사용자가 내려받아야 하는 자바스크립트의 양이 불필요하게 커지므로 지역 등록이 나음
-		/* Vue.component('hello-world', {
+		Vue.component('hello-world', {
 			template : '<div>hello-world</div>'
 		}); 
 		
@@ -37,6 +37,8 @@
 					<button @click="changeText">Click</button>
 				</div>
 			`, 
+			// 재사용을 하는 컴포넌트이기 때문에 object를 넣게 되면 reference(주소값)으로 넘어가게 됨
+			// => 여러군데에서 같은 컴포넌트를 사용하는 경우, 데이터값이 공유되기 때문에  Object 대신 Object reuturn 함수로 변경
 			data : function(){
 				return {
 					name : 'aaaa'
@@ -68,6 +70,8 @@
 					<button @click="changeText">Click</button>
 				</div>
 			`, 
+			// 재사용을 하는 컴포넌트이기 때문에 object를 넣게 되면 reference(주소값)으로 넘어가게 됨
+			// => 여러군데에서 같은 컴포넌트를 사용하는 경우, 데이터값이 공유되기 때문에  Object 대신 Object reuturn 함수로 변경
 			data : function(){
 				return {
 					name : 'aaaa'

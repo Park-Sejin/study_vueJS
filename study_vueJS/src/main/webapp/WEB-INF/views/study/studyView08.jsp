@@ -21,10 +21,11 @@
 	<body>
 		<div id="app">
 			<!-- 클래스 바인딩 -->
-			<div :class="{ red : isRed, 'font-bold' : isBold }">Hello</div> <br>
+			<div :class="{ red : isRed, 'font-bold' : isBold }">Hello (1)</div> <br>
+			<div :class="classObject">Hello (2)</div> <br>
 			
 			<!-- 스타일 바인딩 -->
-			<div :style="{ color : red, fontSize : size }">Hello</div> <br>
+			<div :style="{ color : red, 'font-size' : size }">Hello</div> <br>
 			
 			<button @click="update">Click</button>
 		</div>
@@ -34,9 +35,15 @@
 		var app = new Vue({
 			el: '#app', 
 			data: {
-				// 클래스 바인딩
+				// 클래스 바인딩 (1)
 				isRed : false,
 				isBold : false,
+				
+				// 클래스 바인딩 (2)
+				classObject : {
+					red : true,
+					'font-bold' : true
+				},
 				
 				//스타일 바인딩
 				red : 'red',

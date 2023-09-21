@@ -37,6 +37,7 @@
 			},
 			// 데이터 변경에 대한 응답으로 비동기식 또는 시간이 많이 소요되는 조작을 수행하려는 경우에 가장 유용
 			watch : {
+				// 파라메터 : 수정 데이터, 기존 데이터
 				message : function(newVal, oldVal) {
 					console.log(newVal, oldVal);
 					this.updated = '네';

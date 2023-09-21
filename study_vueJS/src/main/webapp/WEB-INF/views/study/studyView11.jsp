@@ -28,9 +28,9 @@
 			},
 			methods : {
 				changeText : function() {
-					this.name = 'aaaa updated';
+					this.name = 'aaaa updated (app)';
 					// app1의 name 변수 접근 가능
-					app1.name = 'bbbb updated';
+					app1.name = 'bbbb updated (app)';
 				}
 			}
 		});
@@ -42,7 +42,7 @@
 			},
 			methods : {
 				changeText : function() {
-					this.name = 'bbbb updated';
+					this.name = 'bbbb updated (app1)';
 				}
 			}
 		});
