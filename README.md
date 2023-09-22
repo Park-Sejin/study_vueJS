@@ -1,2 +1,2 @@
 # study_vueJS
-vue.js 공부
+cdn으로 vue.js 공부
