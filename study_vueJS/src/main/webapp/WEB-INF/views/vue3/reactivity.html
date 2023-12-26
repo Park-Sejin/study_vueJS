@@ -1,16 +1,28 @@
-<div id="app"></div>
+<div id="app">
+    <!-- 렌더링 될 영역 : 화면에 무언가 표시하는 행위 -->
+
+</div>
 
 <script>   
     var data = {
-        a : 10
+        message : '10'
+    }
+
+    function render(sth){
+        var div = document.querySelector('#app');
+
+        div.innerHTML = sth;
     }
 
     var app = new Proxy(data, {
         get() {
             console.log('값 접근');
         },
-        set() {
+        set(target, prop, newValue) {
             console.log('값 갱신');
+            
+            target[prop] = newValue;
+            render(newValue);
         }
     })
 </script>
