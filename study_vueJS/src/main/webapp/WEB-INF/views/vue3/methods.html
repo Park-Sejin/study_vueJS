@@ -1,0 +1,27 @@
+<!-- HTML -->
+<div id="app">
+    <p>{{ count }}</p>
+
+    <!-- @:click으로 축약 가능  -->
+    <button v-on:click="addCount">+</button>
+</div>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        // 속성에 함수 연결 => 안에서 정의된 값들이 reactivity가 주입됨.
+        // data()로 축약 가능
+        data : function(){
+            return {
+                count : 0
+            }
+        },
+        methods : {
+            // addCount()로 축약 가능
+            addCount : function(){
+                this.count++;
+            }
+        }
+    }).mount('#app')
+</script>
