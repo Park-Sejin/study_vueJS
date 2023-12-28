@@ -1,0 +1,23 @@
+<div id="app">
+    <!-- 프롭스 넘기기 : v-bind:프롭스 이름="상위 컴포넌트의 데이터 이름" -->
+    <app-header v-bind:title="appTitle"></app-header>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        // 인스턴스 옵션 속성 - 옵션 API
+        data() {
+          return {
+            appTitle : 'props 데이터 전송'
+          }  
+        },
+        components : {
+            // '컴포넌트 이름' : 컴포넌트 내용
+            'app-header' : {
+                template : '<h1>{{ title }}</h1>',
+                props : ['title']
+            }
+        },
+    }).mount('#app');
+</script>
