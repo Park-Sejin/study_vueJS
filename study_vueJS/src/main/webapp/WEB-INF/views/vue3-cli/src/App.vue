@@ -1,26 +1,40 @@
+<!-- vbc -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <AppHeader></AppHeader>
+
+    {{ message }}
+
+    <!-- v-on:click => @click -->
+    <button @click="showAlert">경고</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import AppHeader from './components/AppHeader.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    components : {
+      // '컴포넌트 이름' : 컴포넌트 내용
+      // 'app-header' : AppHeader
+      // 'AppHeader' : AppHeader
+      // AppHeader : AppHeader
+      AppHeader
+    },
+    // vda
+    data() {
+      return {
+        message : 'hi'
+      }
+    },
+    methods : {
+      showAlert() {
+        alert('hello');
+      }
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
