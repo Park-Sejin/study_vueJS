@@ -1,10 +1,16 @@
 <template>
-    <h1>app header</h1>
+    <h1>{{ appTitle }}</h1>
+    <button @click="changeTitle">title 변경</button>
 </template>
 
 <script>
     export default {
-        
+        props : ['appTitle'],
+        methods : {
+            changeTitle() {
+                this.$emit('change');
+            }
+        }
     }
 </script>
 

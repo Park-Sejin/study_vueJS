@@ -1,12 +1,7 @@
 <!-- vbc -->
 <template>
   <div>
-    <AppHeader></AppHeader>
-
-    {{ message }}
-
-    <!-- v-on:click => @click -->
-    <button @click="showAlert">경고</button>
+    <AppHeader v-bind:appTitle="message" v-on:change="changeMessage"></AppHeader>
   </div>
 </template>
 
@@ -24,12 +19,12 @@
     // vda
     data() {
       return {
-        message : 'hi'
+        message : 'app header component'
       }
     },
     methods : {
-      showAlert() {
-        alert('hello');
+      changeMessage() {
+        this.message = '변경됨';
       }
     }
   }
