@@ -1,0 +1,43 @@
+<div id="app">
+	<div>{{num1}}곱하기 {{num2}}는?</div>
+	<form @submit="onSubmitForm">
+		<input type="number" v-model="value" ref="answer">
+		<button type="submit">입력</button>
+	</form>
+	<div>{{result}}</div>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+	Vue.createApp({
+		data(){
+			return {
+				num1 : Math.ceil(Math.random()*9),
+				num2 : Math.ceil(Math.random()*9),
+				value : '',
+				result : ''
+			}
+		},
+		methods : {
+			onSubmitForm(e) {
+				e.preventDefault();
+
+				const result = this.num1 * this.num2;
+
+				if(this.value == result){
+					this.result = '정답'
+
+					this.num1 = Math.ceil(Math.random()*9);
+					this.num2 = Math.ceil(Math.random()*9);
+				} 
+				else {
+					this.result = '땡'
+				}
+
+				this.value = '';
+				// ref : 태그에 직접 접근 => 데이터로 조작할 수 있는 상황이 아닐 경우에만 사용
+				this.$refs.answer.focus();
+			}
+		}
+	}).mount('#app');
+</script>

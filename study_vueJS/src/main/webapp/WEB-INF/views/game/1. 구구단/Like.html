@@ -1,0 +1,20 @@
+<div id="app">
+	<div v-if="liked">좋아요 눌렀음.</div>
+	<button v-else @click="onClickButton">Like</button>
+</div>
+	
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+	Vue.createApp({
+		data() {
+			return {
+				liked : false
+			}
+		},
+		methods : {
+			onClickButton() {
+				this.liked = true;
+			}
+		}
+	}).mount('#app');
+</script>
