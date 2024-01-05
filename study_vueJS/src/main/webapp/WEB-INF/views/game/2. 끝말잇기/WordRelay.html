@@ -1,0 +1,40 @@
+<div id="app">
+	<div>{{ word }}</div>
+	<form @submit="onSubmitForm">
+		<input type="text" v-model="value" ref="answer">
+		<button type="submit">입력</button>
+	</form>
+	<div>{{ result }}</div>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+	Vue.createApp({
+		data() {
+			return {
+				word : '끝말잇기',
+				value : '',
+				result : ''
+			}
+		},
+		methods : {
+			onSubmitForm(e) {
+				e.preventDefault();
+
+				const lastText = this.word.substring(this.word.length-1);
+				const firstText = this.value.substring(0, 1);
+
+				if(lastText == firstText){
+					this.result = '정답';
+					this.word = this.value;
+				}
+				else {
+					this.result = '땡';
+				}
+
+				this.value = '';
+				this.$refs.answer.focus();
+			}
+		}
+	}).mount('#app');
+</script>
