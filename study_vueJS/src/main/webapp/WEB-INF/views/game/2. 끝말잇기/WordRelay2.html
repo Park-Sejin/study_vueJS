@@ -8,16 +8,16 @@
 	<div>{{ result }}</div>
 	 -->
 	
-	<word-relay></word-relay>
-	<word-relay></word-relay>
-	<word-relay></word-relay>
+	<word-relay start-word="가가가"></word-relay>
+	<word-relay start-word="나나나"></word-relay>
+	<word-relay start-word="다다다"></word-relay>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
 	Vue.createApp({
 		components : {
-			'word-relay' : {
+			'wordRelay' : {
 				template : `
 					<div>{{ word }}</div>
 					<form @submit="onSubmitForm">
@@ -26,9 +26,10 @@
 					</form>
 					<div>{{ result }}</div>
 				`, 
+				props : ['startWord'],
 				data() {
 					return {
-						word : '끝말잇기',
+						word : this.startWord,
 						value : '',
 						result : ''
 					}
